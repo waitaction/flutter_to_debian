@@ -135,20 +135,7 @@ Future<void> addDebianPreInstall() async {
   final Map control = Vars.debianYaml["control"];
   final String preInstScript = '''
 #!/bin/bash
-echo "\n⚠️  ⚠️  ⚠️  Warning!"
-echo "\nThe creator of a debian package has 100% access to every parts of the system it's installed"
-echo "\nMaintainer: ${control["Maintainer"]}"
-echo "\nDescription: ${control["Description"]}"
-
-echo "\nSure you want to proceed with the installation of this package (yes/no) ?:"
-read choice
-
-if [[ "\$choice" != "yes" ]]; then
-  #pwd # /home/user/foo
-  exit 1
-else
-  echo "proceeding..."
-fi
+echo "proceeding..."
 ''';
 
   File preinstFile = File(
